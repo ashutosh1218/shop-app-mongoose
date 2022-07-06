@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const nodemailer=require('nodemailer');
-const mailchimp=require('@mailchimp/mailchimp_transactional')('9dc2114eec668227004973c953a57386')
+// const mailchimp=require('@mailchimp/mailchimp_transactional')('9dc2114eec668227004973c953a57386')
 exports.getLogin = (req, res, next) => {
     let message=req.flash('error');
     if(message.length>0){
@@ -88,24 +88,24 @@ exports.postSignup = (req, res, next) => {
                     return user.save();
                 })
                 .then(result => {
-                    const message = {
-                        from_email: "shop@node-complete.com",
-                        subject: "Signup Success!",
-                        text: "Signup Successful!",
-                        to: [
-                          {
-                            email: email,
-                            type: "to"
-                          }
-                        ]
-                      }
-                      async function run() {
-                        const response = await mailchimp.messages.send({
-                          message
-                        });
-                        console.log(response);
-                      }
-                      run();
+                    // const message = {
+                    //     from_email: "shop@node-complete.com",
+                    //     subject: "Signup Success!",
+                    //     text: "Signup Successful!",
+                    //     to: [
+                    //       {
+                    //         email: email,
+                    //         type: "to"
+                    //       }
+                    //     ]
+                    //   }
+                    //   async function run() {
+                    //     const response = await mailchimp.messages.send({
+                    //       message
+                    //     });
+                    //     console.log(response);
+                    //   }
+                    //   run();
                     res.redirect('/login');
                 })
                 ;
