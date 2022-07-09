@@ -10,7 +10,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 const session = require('express-session');
 const MongoDbStore = require('connect-mongodb-session')(session);
-const MONGODB_URI = 'mongodb+srv://ashutosh1218:mongodb123@cluster0.y3laj.mongodb.net/shopDb';
+const MONGODB_URI = 'databse_url';
 const app = express();
 const store = new MongoDbStore({
   uri: MONGODB_URI,
